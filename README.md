@@ -6,10 +6,6 @@
 Gan Xiao Nan
 Luís Ferreira
 
-
-
-
-
 ---
 
 [Project overview]
