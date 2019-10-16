@@ -1,9 +1,10 @@
 ### Proposal for Software Engineering project
 
 # Doggag
+---
 
 ## Enginheroes
-Gan Xiao Nan
+Gan Xiao Nan and 
 Luís Ferreira
 
 ---
@@ -30,13 +31,4 @@ It will be separated in a couple views: "index" view where the posts are listed 
 - [ ] Proposed database tables
 - [ ] Proposed user interface
 - [ ] Website(s) where the main Django server is based.
-
-# title1
-## title2
-### title 3
-![***img fails to load text***](image.jpg)
-[title](https://www.example.com)
-**bold**
-*ita*
-`code`
 
