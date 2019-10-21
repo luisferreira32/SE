@@ -24,8 +24,8 @@ It's a simple web app with a database and an image storage.
 ---
 
 [Domain model]  
-
-![Activity diagram failed to load](./imgs_proposal/Activity.png)
+![Class diagram failed to load](./imgs_proposal/class.png)
+![Activity diagram failed to load](./imgs_proposal/activity.png)
 
 ---
 
@@ -49,7 +49,7 @@ It is to note that comment table primary key is only complete with the post fore
 - [x] Project title, team name & members on the front page
 - [x] Overview of the project in around half a page
 - [x] Proposed system architecture
-- [x] Proposed domain model
+- [ ] Proposed domain model
 - [x] Proposed entity-relationship diagram
 - [x] Proposed database tables
 - [x] Proposed user interface
