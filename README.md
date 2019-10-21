@@ -4,7 +4,7 @@
 ---
 
 ## Enginheroes
-Gan Xiao Nan and 
+Gan Xiao Nan and
 Luís Ferreira
 
 ---
@@ -18,7 +18,14 @@ It will be separated in a couple views: "index" view where the posts are listed 
 [System architecture]
 
 
+---
 
+[Domain model]
+
+---
+
+[ER diagram]
+![ER diagram failed to load](./imgs_proposal/ER_doggag.png)
 ---
 
 (Things to talk about and "cheat sheet")
@@ -31,4 +38,3 @@ It will be separated in a couple views: "index" view where the posts are listed 
 - [ ] Proposed database tables
 - [ ] Proposed user interface
 - [ ] Website(s) where the main Django server is based.
-
