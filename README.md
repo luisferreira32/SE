@@ -4,7 +4,7 @@
 ---
 
 ## Enginheroes
-Gan Xiao Nan and
+Gan Xiao Nan  
 Luís Ferreira
 
 ---
@@ -25,7 +25,16 @@ It will be separated in a couple views: "index" view where the posts are listed 
 ---
 
 [ER diagram]
+
 ![ER diagram failed to load](./imgs_proposal/ER_doggag.png)
+
+---
+
+First we propose to use an extension of the class, and therefore the database table, of an already existing django class, from django.contrib.auth, that will help with authentication. The other tables are from original model classes.  
+It is to note that comment table primary key is only complete with the post foreign key.
+
+![Database tables failed to load](./imgs_proposal/db.png)
+
 ---
 
 (Things to talk about and "cheat sheet")
@@ -34,7 +43,7 @@ It will be separated in a couple views: "index" view where the posts are listed 
 - [x] Overview of the project in around half a page
 - [ ] Proposed system architecture
 - [ ] Proposed domain model
-- [ ] Proposed entity-relationship diagram
-- [ ] Proposed database tables
+- [x] Proposed entity-relationship diagram
+- [x] Proposed database tables
 - [ ] Proposed user interface
 - [ ] Website(s) where the main Django server is based.
