@@ -24,7 +24,8 @@ It's a simple web app with a database and an image storage.
 ---
 
 [Domain model]  
-![Class diagram failed to load](./imgs_proposal/class.png)
+![Class diagram failed to load](./imgs_proposal/modelsclass.png)
+![Class diagram failed to load](./imgs_proposal/viewsclass.png)
 ![Activity diagram failed to load](./imgs_proposal/activity.png)
 
 ---
