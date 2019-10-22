@@ -45,12 +45,12 @@ It is to note that comment table primary key is only complete with the post fore
 
 ---
 
-(Things to talk about and "cheat sheet")
+(Things to talk about)
 
 - [x] Project title, team name & members on the front page
 - [x] Overview of the project in around half a page
 - [x] Proposed system architecture
-- [ ] Proposed domain model
+- [x] Proposed domain model
 - [x] Proposed entity-relationship diagram
 - [x] Proposed database tables
 - [x] Proposed user interface
