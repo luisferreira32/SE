@@ -8,17 +8,15 @@ class Profile(models.Model):
     description = models.TextField(max_length=500, blank=True)
     nickname = models.CharField(max_length=30, blank=True)
     photo = models.ImageField(
-            upload_to= "../images/",
+            upload_to= "images/",
             null = True,
-            blank = True,
-            height_field = "height_field",
-            width_field = "width_field")
+            blank = True,)
 
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
 
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
