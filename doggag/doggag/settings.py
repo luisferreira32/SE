@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'apps.apps.AppsConfig',
+    'apps.apps.AppsConfig', #main app
+    'accounts.apps.AccountsConfig', #account management app
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -119,3 +120,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = 'home' #or anyother name for the "index" page
+LOGOUT_REDIRECT_URL = 'home'
