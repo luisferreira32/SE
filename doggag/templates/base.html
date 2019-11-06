@@ -3,10 +3,12 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Doggag{% endblock %}</title>  
+  <title>{% block title %}Doggag{% endblock %}</title>
+  {% load static %}
   <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
   <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
   <script src="{% static 'js/infinite.min.js' %}"></script>
+  <link rel="stylesheet" type="text/css" src="{% static 'css/style.css'}">
 </head>
 <body>
   <main>
