@@ -15,14 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic.base import TemplateView #will not be needed after moving LOGIN to the app
+from django.conf.urls import url
+from doggag.blog import views
 
 urlpatterns = [
+    url(r'^index/$', views.home, name='home'),
     path('', include('apps.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')), #order is important
     path('accounts/', include('django.contrib.auth.urls')),
-
-    # this templates will be "on" the apps, I'll do the merge later.
-    path('testingLogin/', TemplateView.as_view(template_name='home.html'), name='home'),
 ]
