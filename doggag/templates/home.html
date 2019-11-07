@@ -3,6 +3,7 @@
 {% block content %}
 {% if user.is_authenticated %}
   <p> Hi {{ user.username }}! </p>
+  <img src="{{ user.photo.url }}" alt="Profile picture">
   <p><a href="{% url 'logout' %}">logout</a></p>
 {% else %}
   <p>You are not logged in</p>
@@ -13,6 +14,9 @@
     {% for post in posts %}
       <div class="infinite-item">
         <h3>{{ post.title }}</h3>
+        <p>{{ post.votes }}</p>
+        <a href="{% url 'apps:upvote' post.id %}" class="button">Upvote</a>
+        <a href="{% url 'apps:downvote' post.id %}" class="button">Downvote</a>
       </div>
     {% endfor %}
   </div>
