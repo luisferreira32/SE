@@ -1,43 +1,54 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  <p> Hi {{ user.username }}! </p>
-  <img src="{{ user.photo.url }}" alt="Profile picture">
-  <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-{% endif %}
 
-  <div class="infinite-container">
+    <!-- This block should be in the header -->
+    {% if user.is_authenticated %}
+        <p> Hi {{ user.username }}! </p>
+        <!-- Display user photo if user has -->
+        {% if user.profile.photo %}
+            <img src="{{ user.profile.photo.url }}" alt="Profile picture">
+        {% else %}
+            <img src="/media/images/default.png" alt="Default profile picture">
+        {% endif %}
+        <p><a href="{% url 'apps:upload' %}" class="button">Upload Post</a></p>
+        <p><a href="{% url 'logout' %}" class="button">Logout</a></p>
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}" class="button">Login</a>
+    {% endif %}
+
+    <!-- Display the posts -->
+    <div class="infinite-container">
     {% for post in posts %}
-      <div class="infinite-item">
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.votes }}</p>
-        <a href="{% url 'apps:upvote' post.id %}" class="button">Upvote</a>
-        <a href="{% url 'apps:downvote' post.id %}" class="button">Downvote</a>
-      </div>
+        <div class="infinite-item">
+            <h3>{{ post.title }}</h3>
+            <img src="{{ post.content.url }}" alt="Post image failed to load">
+            <p>{{ post.votes }}</p>
+            <a href="{% url 'apps:upvote' post.id %}" class="button">Upvote</a>
+            <a href="{% url 'apps:downvote' post.id %}" class="button">Downvote</a>
+        </div>
     {% endfor %}
-  </div>
+    </div>
 
-  <div class="loading" style="display: none;">
-    Loading...
-  </div>
+    <div class="loading" style="display: none;">
+        Loading...
+    </div>
 
-  {% if page_obj.has_next %}
-    <a class="infinite-more-link" href="?page={{ posts.next_page_number }}">More</a>
-  {% endif %}
+    {% if page_obj.has_next %}
+        <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">More</a>
+    {% endif %}
 
-  <script>
+    <script>
     var infinite = new Waypoint.Infinite({
-      element: $('.infinite-container')[0],
-      onBeforePageLoad: function () {
-        $('.loading').show();
-      },
-      onAfterPageLoad: function ($items) {
-        $('.loading').hide();
-      }
+        element: $('.infinite-container')[0],
+        onBeforePageLoad: function () {
+            $('.loading').show();
+            },
+        onAfterPageLoad: function ($items) {
+            $('.loading').hide();
+            }
     });
-  </script>
+
+    </script>
 {% endblock %}

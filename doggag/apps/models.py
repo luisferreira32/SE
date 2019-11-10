@@ -3,7 +3,10 @@ from django.db import models
 class Post(models.Model):
     title = models.CharField(max_length=30)
     votes = models.IntegerField(default=0)
-    #will have an image here
+    content = models.ImageField(
+        upload_to='images/',
+        default='images/404image.jpg'
+        )
 
     def upvotePost(self):
         self.votes = self.votes + 1

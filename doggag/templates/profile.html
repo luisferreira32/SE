@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Display user nickname if user has -->
+    {% if userprofile.profile.nickname %}
+        <h2> {{ userprofile.profile.nickname }} </h2>
+    {% else %}
+        <h2> {{ userprofile.username }} </h2>
+    {% endif%}
+    <p> {{ userprofile.profile.description }}</p>
+    <!-- Display user photo if user has it-->
+    {% if userprofile.profile.photo %}
+        <img src="{{ userprofile.profile.photo.url }}" alt="Profile picture">
+    {% else %}
+        <img src="/media/images/default.png" alt="Default profile picture">
+    {% endif %}
+
+    {% if user.is_authenticated and user == userprofile %}
+    <p><a href="{% url 'accounts:updateprof' user.profile.id %}" class="button">Update Profile</a></p>
+    {% endif %}
+{% endblock %}

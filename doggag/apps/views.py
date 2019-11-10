@@ -1,10 +1,11 @@
-from django.views.generic.list import ListView
+from django.views.generic import ListView, CreateView
 from .models import Post
+from .forms import PostForm
+
 from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
-from django.views.generic import TemplateView
-from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.decorators import login_required
 
 class ScrollView(ListView):
     model = Post
@@ -13,21 +14,23 @@ class ScrollView(ListView):
     template_name = 'home.html'
 
     def upvote(request, post_id):
-        post = get_object_or_404(Post, pk=post_id)
-        post.upvotePost()
-        return HttpResponseRedirect(reverse('apps:home'))
+        if request.user.is_authenticated:
+            post = get_object_or_404(Post, pk=post_id)
+            post.upvotePost()
+            return HttpResponseRedirect(reverse('apps:home'))
+        else:
+            return HttpResponseRedirect(reverse('login'))
 
     def downvote(request, post_id):
-        post = get_object_or_404(Post, pk=post_id)
-        post.downvotePost()
-        return HttpResponseRedirect(reverse('apps:home'))
+        if request.user.is_authenticated:
+            post = get_object_or_404(Post, pk=post_id)
+            post.downvotePost()
+            return HttpResponseRedirect(reverse('apps:home'))
+        else:
+            return HttpResponseRedirect(reverse('login'))
 
-def upload(request):
-    context = {} #this line if want to display name of uploaded file
-    if request.method == "POST":
-        uploaded_file = request.FILES['document']
-        fs = FileSystemStorage()
-        name = fs.save(uploaded_file.name, uploaded_file)
-        #to display uploaded file name in html view
-        context['url'] = fs.url(name)
-    return render(request,'upload.html',context)
+class CreatePostView(CreateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'upload.html'
+    success_url = reverse_lazy('apps:home')

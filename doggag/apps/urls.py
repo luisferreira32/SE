@@ -7,8 +7,8 @@ from . import views
 
 app_name = "apps"
 urlpatterns = [
-    path('upload/',views.upload,name='upload'),
     path('', views.ScrollView.as_view(), name="home"),
+    path('upload/',views.CreatePostView.as_view(),name='upload'),
     path('<int:post_id>/up/', views.ScrollView.upvote, name="upvote"),
     path('<int:post_id>/down/', views.ScrollView.downvote, name="downvote"),
 ]
