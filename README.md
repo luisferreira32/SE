@@ -13,5 +13,5 @@ It will be separated in a couple views: "index" view where the posts are listed 
 
 --
 
-Proposal is written on [proposal](Proposal.md) 
-Class diagram is written on [classes](Class.md)
+Proposal is written on [proposal](Proposal.md)  
+Class diagrams are written on [classes](Class.md)
