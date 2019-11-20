@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <!-- This block should be in the header -->
+    {% if user.is_authenticated %}
+        <p> Hi {{ user.username }}! </p>
+        <!-- Display user photo if user has -->
+        {% if user.profile.photo %}
+            <img src="{{ user.profile.photo.url }}" alt="Profile picture">
+        {% else %}
+            <img src="/media/images/default.png" alt="Default profile picture">
+        {% endif %}
+        <p><a href="{% url 'apps:upload' %}" class="button">Upload Post</a></p>
+        <p><a href="{% url 'logout' %}" class="button">Logout</a></p>
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}" class="button">Login</a>
+    {% endif %}
+
+    <a href="{% url 'apps:home' %}" class="button">HOME</a>
+
+    <h3>{{ post.title }}</h3>
+    <img src="{{ post.content.url }}" alt="Post image failed to load">
+    <p>Number of votes: {{post.votes}}<p>
+
+    <a href="{% url 'apps:upvoteD' post.id %}" class="button">Upvote</a>
+    <a href="{% url 'apps:downvoteD' post.id %}" class="button">Downvote</a>
+
+    <form action="{% url 'apps:comment' post.id %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="com"/>
+        <input type="submit" value="OK">
+    </form>
+    <!-- Display the comments -->
+    {% for comment in comment_list %}
+        <div class="infinite-item">
+            <p>{{ comment.creation_date }}</p>
+            <p>{{ comment.content }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}

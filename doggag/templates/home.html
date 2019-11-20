@@ -22,7 +22,7 @@
     <div class="infinite-container">
     {% for post in posts %}
         <div class="infinite-item">
-            <h3>{{ post.title }}</h3>
+            <h3><a href="{% url 'apps:detail' post.id %}">{{ post.title }}</a></h3>
             <img src="{{ post.content.url }}" alt="Post image failed to load">
             <p>{{ post.votes }}</p>
             <a href="{% url 'apps:upvote' post.id %}" class="button">Upvote</a>
