@@ -3,28 +3,32 @@
 {% block content %}
 
     <!-- This block should be in the header -->
+    <ul>
     {% if user.is_authenticated %}
-        <p> Hi {{ user.profile.nickname }}! </p>
+        <li> <p id="greeting"> Hi {{ user.profile.nickname }}! </p> </li>
         <!-- Display user photo if user has -->
+        <li>
         {% if user.profile.photo %}
-            <img src="{{ user.profile.photo.url }}" alt="Profile picture">
+            <img class="profile" src="{{ user.profile.photo.url }}" alt="Profile picture">
         {% else %}
-            <img src="/media/images/default.png" alt="Default profile picture">
+            <img class="profile" src="/media/images/default.png" alt="Default profile picture">
         {% endif %}
-        <p><a href="{% url 'apps:upload' %}" class="button">Upload Post</a></p>
-        <p><a href="{% url 'accounts:userdetail' user.id %}" class="button">User profile</a></p>
-        <p><a href="{% url 'logout' %}" class="button">Logout</a></p>
+        </li>
+        <li><a href="{% url 'apps:upload' %}" >Upload Post</a></li>
+        <li><a href="{% url 'accounts:userdetail' user.id %}">User profile</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
     {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}" class="button">Login</a>
+        <li><p>You are not logged in</p></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
     {% endif %}
+    </ul>
 
     <!-- Display the posts -->
     <div class="infinite-container">
     {% for post in posts %}
-        <div class="infinite-item">
+        <div class="infinite-item center">
             <h3><a href="{% url 'apps:detail' post.id %}">{{ post.title }}</a></h3>
-            <img src="{{ post.content.url }}" alt="Post image failed to load">
+            <img class="post" src="{{ post.content.url }}" alt="Post image failed to load">
             <p>{{ post.votes }}</p>
             <a href="{% url 'apps:upvote' post.id %}" class="button">Upvote</a>
             <a href="{% url 'apps:downvote' post.id %}" class="button">Downvote</a>
