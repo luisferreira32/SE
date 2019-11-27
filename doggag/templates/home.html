@@ -4,7 +4,7 @@
 
     <!-- This block should be in the header -->
     {% if user.is_authenticated %}
-        <p> Hi {{ user.username }}! </p>
+        <p> Hi {{ user.profile.nickname }}! </p>
         <!-- Display user photo if user has -->
         {% if user.profile.photo %}
             <img src="{{ user.profile.photo.url }}" alt="Profile picture">
@@ -12,6 +12,7 @@
             <img src="/media/images/default.png" alt="Default profile picture">
         {% endif %}
         <p><a href="{% url 'apps:upload' %}" class="button">Upload Post</a></p>
+        <p><a href="{% url 'accounts:userdetail' user.id %}" class="button">User profile</a></p>
         <p><a href="{% url 'logout' %}" class="button">Logout</a></p>
     {% else %}
         <p>You are not logged in</p>
@@ -27,6 +28,11 @@
             <p>{{ post.votes }}</p>
             <a href="{% url 'apps:upvote' post.id %}" class="button">Upvote</a>
             <a href="{% url 'apps:downvote' post.id %}" class="button">Downvote</a>
+            {% if post.post_owner != None %}
+                <p>Post owner: <a href="{% url 'accounts:userdetail' post.post_owner.id %}">{{ post.post_owner }} </a></p>
+            {% else %}
+                <p>Post owner : {{ post.post_owner }}</p>
+            {% endif %}
         </div>
     {% endfor %}
     </div>

@@ -13,6 +13,9 @@ class ScrollView(ListView):
     context_object_name = 'posts'
     template_name = 'home.html'
 
+    def get_queryset(self):
+        return Post.objects.order_by('-votes')
+
     def upvote(request, post_id):
         if request.user.is_authenticated:
             post = get_object_or_404(Post, pk=post_id)
@@ -36,6 +39,12 @@ class CreatePostView(CreateView):
     form_class = PostForm
     template_name = 'upload.html'
     success_url = reverse_lazy('apps:home')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.post_owner = self.request.user
+        obj.save()
+        return HttpResponseRedirect(self.success_url)
 
 
 
