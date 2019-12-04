@@ -3,24 +3,24 @@
 {% block content %}
 
     <!-- This block should be in the header -->
-    <ul>
+    <ul class="head">
     <li><a href="{% url 'apps:home' %}"> -- HOME -- </a></li>
     {% if user.is_authenticated %}
-        <li> <p id="greeting"> Hi {{ user.profile.nickname }}! </p> </li>
+        <li class="head"> <p id="greeting"> Hi {{ user.profile.nickname }}! </p> </li>
         <!-- Display user photo if user has -->
-        <li>
+        <li class="head">
         {% if user.profile.photo %}
             <img class="profile" src="{{ user.profile.photo.url }}" alt="Profile picture">
         {% else %}
             <img class="profile" src="/media/images/default.png" alt="Default profile picture">
         {% endif %}
         </li>
-        <li><a href="{% url 'apps:upload' %}" >Upload Post</a></li>
-        <li><a href="{% url 'accounts:userdetail' user.id %}">User profile</a></li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li class="head"><a href="{% url 'apps:upload' %}" >Upload Post</a></li>
+        <li class="head"><a href="{% url 'accounts:userdetail' user.id %}">User profile</a></li>
+        <li class="head"><a href="{% url 'logout' %}">Logout</a></li>
     {% else %}
-        <li><p>You are not logged in</p></li>
-        <li><a href="{% url 'login' %}">Login</a></li>
+        <li class="head"><p>You are not logged in</p></li>
+        <li class="head"><a href="{% url 'login' %}">Login</a></li>
     {% endif %}
     </ul>
 
