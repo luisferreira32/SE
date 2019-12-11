@@ -2,35 +2,17 @@
 
 {% block content %}
 
-    <!-- This block should be in the header -->
-    <ul class="head">
-    {% if user.is_authenticated %}
-        <li class="head"> <p id="greeting"> Hi {{ user.profile.nickname }}! </p> </li>
-        <!-- Display user photo if user has -->
-        <li class="head">
-        {% if user.profile.photo %}
-            <img class="profile" src="{{ user.profile.photo.url }}" alt="Profile picture">
-        {% else %}
-            <img class="profile" src="/media/images/default.png" alt="Default profile picture">
-        {% endif %}
-        </li>
-        <li class="head"><a href="{% url 'apps:upload' %}" >Upload Post</a></li>
-        <li class="head"><a href="{% url 'accounts:userdetail' user.id %}">User profile</a></li>
-        <li class="head"><a href="{% url 'logout' %}">Logout</a></li>
-    {% else %}
-        <li class="head"><p>You are not logged in</p></li>
-        <li class="head"><a href="{% url 'login' %}">Login</a></li>
-        <li class="head"><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
-    {% endif %}
-    </ul>
-
     <!-- Display the posts -->
     <div class="infinite-container">
     {% for post in posts %}
         <div class="infinite-item center">
             <h3><a href="{% url 'apps:detail' post.id %}">{{ post.title }}</a></h3>
-            <img class="post" src="{{ post.content.url }}" alt="Post image failed to load">
-            <p>{{ post.votes }}</p>
+            {% if post.content.url %}
+                <img class="post" src="{{ post.content.url }}" alt="Image deleted from the data base">
+            {% else %}
+                <img class="post" src="/media/images/404image.jpg" alt="Post image failed to load">
+            {% endif %}
+            <p>Number of votes: {{ post.votes }}</p>
             <a href="{% url 'apps:upvote' post.id %}" class="button">Upvote</a>
             <a href="{% url 'apps:downvote' post.id %}" class="button">Downvote</a>
             {% if post.post_owner != None %}

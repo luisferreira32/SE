@@ -16,6 +16,29 @@
 </head>
 <body>
   <main>
+
+          <!-- This block should be in the header -->
+          <ul class="head">
+          {% if user.is_authenticated %}
+              <li class="head"> <p id="greeting"> Hi {{ user.profile.nickname }}! </p> </li>
+              <!-- Display user photo if user has -->
+              <li class="head">
+              {% if user.profile.photo %}
+                  <img class="profile" src="{{ user.profile.photo.url }}" alt="Profile picture">
+              {% else %}
+                  <img class="profile" src="/media/images/default.png" alt="Default profile picture">
+              {% endif %}
+              </li>
+              <li class="head"><a href="{% url 'apps:upload' %}" >Upload Post</a></li>
+              <li class="head"><a href="{% url 'accounts:userdetail' user.id %}">User profile</a></li>
+              <li class="head"><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+              <li class="head"><p>You are not logged in</p></li>
+              <li class="head"><a href="{% url 'login' %}">Login</a></li>
+              <li class="head"><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+          {% endif %}
+          <li class="head"><a href="{% url 'apps:home' %}"> -- HOME -- </a></li>
+          </ul>
     {% block content %}
     {% endblock %}
   </main>
