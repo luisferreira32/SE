@@ -24,7 +24,7 @@ SECRET_KEY = 's=0w8rna$)ugl8v78z_(6*2n#6ycr%+%_$r@65)((##xd+53ho'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'doggag.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
