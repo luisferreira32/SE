@@ -24,7 +24,7 @@ It's a simple web app with a database and an image storage.
 ---
 
 [Domain model]  
-![Use case diagram failed to load](./imgs_proposal/usecase.png)
+![Domain model diagram failed to load](./imgs_proposal/domain.png)  
 Class diagrams are written on [classes](Class.md)
 
 ---
@@ -37,15 +37,14 @@ Class diagrams are written on [classes](Class.md)
 
 [Database tables]  
 
-First we propose to use an extension of the class, and therefore the database table, of an already existing django class, from django.contrib.auth, that will help with authentication. The other tables are from original model classes.  
-It is to note that comment table primary key is only complete with the post foreign key.
+We use a table of an already existing django class "User", from django.contrib.auth, that will help with authentication. The other tables are from original model classes. It is to note that comment table primary key is only complete with the post foreign key and the profile primary key is only complete with the user foreign key. Since the database is SQLite, date is stored as TEXT and for images only the path is stored as TEXT.  
 
 ![Database tables failed to load](./imgs_proposal/db.png)
 
 ---
 
 [Hosting website]  
-  
+
 [http://doggag.pythonanywhere.com/](http://doggag.pythonanywhere.com/)
 
 ---
@@ -55,7 +54,7 @@ It is to note that comment table primary key is only complete with the post fore
 - [x] Project title, team name & members on the front page
 - [x] Overview of the project in around half a page
 - [x] Proposed system architecture
-- [x] Proposed domain model (use case, sequence diagram, class diagram)
+- [x] Proposed domain model
 - [x] Proposed entity-relationship diagram
 - [x] Proposed database tables
 - [x] Proposed user interface
