@@ -59,9 +59,9 @@ li a:hover {
 
 img.profile {
     border-radius: 50%;
-    max-width: 10%;
+    max-width: 25px;
     height: auto;
-    margin: 5%;
+    margin: 10px;
 }
 
 p#greeting {
