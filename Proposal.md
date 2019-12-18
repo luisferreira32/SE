@@ -48,6 +48,23 @@ We use a table of an already existing django class "User", from django.contrib.a
 
 ---
 
+[GUI]  
+The graphical user interface is simple and straight forward. Mainly just HTML/CSS and a small script with jQuery.  
+Home page:  
+![homepage failed to load](./imgs_proposal/homePage.PNG)   
+Login page:  
+![homepage failed to load](./imgs_proposal/loginPage.PNG)   
+Post detail:  
+![homepage failed to load](./imgs_proposal/postDetail.PNG)  
+User profile page:  
+![homepage failed to load](./imgs_proposal/userProfile.PNG)  
+Update user profile:  
+![homepage failed to load](./imgs_proposal/updateUserProfileSite.PNG)   
+Upload post page:  
+![homepage failed to load](./imgs_proposal/uploadPostPage.PNG)
+
+---
+
 [Hosting website]  
 
 [http://doggag.pythonanywhere.com/](http://doggag.pythonanywhere.com/)
