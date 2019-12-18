@@ -51,17 +51,17 @@ We use a table of an already existing django class "User", from django.contrib.a
 [GUI]  
 The graphical user interface is simple and straight forward. Mainly just HTML/CSS and a small script with jQuery.  
 Home page:  
-![homepage failed to load](./imgs_proposal/homePage.PNG)   
+![homepage failed to load](./imgs_proposal/proposalGUI/homePage.PNG)   
 Login page:  
-![homepage failed to load](./imgs_proposal/loginPage.PNG)   
+![homepage failed to load](./imgs_proposal/proposalGUI/loginPage.PNG)   
 Post detail:  
-![homepage failed to load](./imgs_proposal/postDetail.PNG)  
+![homepage failed to load](./imgs_proposal/proposalGUI/postDetail.PNG)  
 User profile page:  
-![homepage failed to load](./imgs_proposal/userProfile.PNG)  
+![homepage failed to load](./imgs_proposal/proposalGUI/userProfile.PNG)  
 Update user profile:  
-![homepage failed to load](./imgs_proposal/updateUserProfileSite.PNG)   
+![homepage failed to load](./imgs_proposal/proposalGUI/updateUserProfileSite.PNG)   
 Upload post page:  
-![homepage failed to load](./imgs_proposal/uploadPostPage.PNG)
+![homepage failed to load](./imgs_proposal/proposalGUI/uploadPostPage.PNG)
 
 ---
 
