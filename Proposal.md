@@ -25,11 +25,16 @@ It's a simple web app with a database and an image storage.
 
 [Domain model]  
 ![Domain model diagram failed to load](./imgs_proposal/domain.png)  
+
+---
+
+[Class diagram]  
 Class diagrams are written on [classes](Class.md)
 
 ---
 
 [ER diagram]  
+There are four models that we are using reflect in four tables with foreign key relationships between them.  
 
 ![ER diagram failed to load](./imgs_proposal/ER_doggag.png)
 
@@ -46,16 +51,3 @@ We use a table of an already existing django class "User", from django.contrib.a
 [Hosting website]  
 
 [http://doggag.pythonanywhere.com/](http://doggag.pythonanywhere.com/)
-
----
-
-(Things to talk about)
-
-- [x] Project title, team name & members on the front page
-- [x] Overview of the project in around half a page
-- [x] Proposed system architecture
-- [x] Proposed domain model
-- [x] Proposed entity-relationship diagram
-- [x] Proposed database tables
-- [x] Proposed user interface
-- [ ] Website(s) where the main Django server is based.
